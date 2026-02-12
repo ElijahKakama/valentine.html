@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine?</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+h1 {
+    color: #e91e63;
+    font-size: 26px;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 260px;
+}
+
+button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #c2185b;
+    transform: scale(1.1);
+}
+
+.hearts {
+    font-size: 40px;
+}
+
+.flower {
+    position: absolute;
+    font-size: 30px;
+    animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-100px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Hide YouTube player */
+#player {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="hearts">💕💕💕</div>
+    <h1>Would you be my Valentine, Lesedi? 💕</h1>
+
+    <div class="box">
+        <button onclick="celebrate()">Yes 💖</button>
+    </div>
+
+    <div class="box">
+        <button onclick="celebrate()">Yes 😍</button>
+    </div>
+</div>
+
+<!-- Hidden YouTube Music Player -->
+<iframe id="player"
+src="https://www.youtube.com/embed/8JZZvo-gJaU?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID"
+allow="autoplay">
+</iframe>
+
+<script>
+function celebrate() {
+
+    // Start music
+    document.getElementById("player").src += "";
+
+    // Create falling flowers
+    for (let i = 0; i < 25; i++) {
+        let flower = document.createElement("div");
+        flower.classList.add("flower");
+        flower.innerHTML = "🌸";
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(flower);
+    }
+
+    // Redirect to WhatsApp after 5 seconds
+    setTimeout(function() {
+         window.location.href = "https://wa.me/27710283100?text=" + 
+    encodeURIComponent("Elijah… 🙄 obviously I want to be your Valentine 😌❤️ I love you so much! Don’t act surprised. 💕✨ Sent from the Valentine portal 💌");
+}, 5000);
+}
+</script>
+
+</body>
+</html>
