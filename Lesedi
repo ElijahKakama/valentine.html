@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine?</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    h1 {
+        color: #e91e63;
+        font-size: 26px;
+    }
+
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 260px;
+    }
+
+    button {
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #c2185b;
+        transform: scale(1.1);
+    }
+
+    .hearts {
+        font-size: 40px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hearts">💕💕💕</div>
+    <h1>Would you be my Valentine, Lesedi? 💕</h1>
+
+    <div class="box">
+        <button onclick="shareLove()">Yes 💖</button>
+    </div>
+
+    <div class="box">
+        <button onclick="shareLove()">Yes 😍</button>
+    </div>
+</div>
+
+<script>
+function shareLove() {
+    if (navigator.share) {
+        navigator.share({
+            title: "I said YES! 💕",
+            text: "I just said YES to being your Valentine! 💖",
+            url: window.location.href
+        }).then(() => {
+            console.log("Shared successfully");
+        }).catch((error) => {
+            console.log("Sharing failed", error);
+        });
+    } else {
+        alert("I said YES! 💕");
+    }
+}
+</script>
+
+</body>
+</html>
